@@ -22,3 +22,28 @@ class Window():
   def close(self):
     self.__window_running = False
 
+  def draw_line(self, line, fill_color):
+    line.draw(self.__canvas, fill_color)
+
+
+class Point():
+  def __init__(self, x, y):
+    self.x = x
+    self.y = y
+
+
+class Line():
+  def __init__(self, first_point, second_point):
+    self.__first_point = first_point
+    self.__second_point = second_point
+
+  def draw(self, canvas, fill_color):
+    canvas.create_line(
+      self.__first_point.x,
+      self.__first_point.y,
+      self.__second_point.x,
+      self.__second_point.y,
+      fill=fill_color,
+      width=2
+    )
+    canvas.pack()
