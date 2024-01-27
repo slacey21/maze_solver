@@ -19,21 +19,30 @@ class Cell():
     self._y2 = y2
 
     if self._win:
+      left_wall_line = Line(Point(x1, y1), Point(x1, y2))
+      right_wall_line = Line(Point(x2, y1), Point(x2, y2))
+      top_wall_line = Line(Point(x1, y2), Point(x2, y2))
+      bottom_wall_line = Line(Point(x1, y1), Point(x2, y1))
+
       if self.has_left_wall:
-        left_wall_line = Line(Point(x1, y1), Point(x1, y2))
         self._win.draw_line(left_wall_line)
+      else:
+        self._win.draw_line(left_wall_line, fill_color=self._win.get_canvas_background())
 
       if self.has_right_wall:
-        right_wall_line = Line(Point(x2, y1), Point(x2, y2))
         self._win.draw_line(right_wall_line)
+      else:
+        self._win.draw_line(right_wall_line, fill_color=self._win.get_canvas_background())
 
       if self.has_top_wall:
-        top_wall_line = Line(Point(x1, y2), Point(x2, y2))
         self._win.draw_line(top_wall_line)
+      else:
+        self._win.draw_line(top_wall_line, fill_color=self._win.get_canvas_background())
         
       if self.has_bottom_wall:
-        bottom_wall_line = Line(Point(x1, y1), Point(x2, y1))
         self._win.draw_line(bottom_wall_line)
+      else:
+        self._win.draw_line(bottom_wall_line, fill_color=self._win.get_canvas_background())
 
   def draw_move(self, to_cell, undo=False):
     curr_width = self._x2 - self._x1
