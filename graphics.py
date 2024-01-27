@@ -1,11 +1,12 @@
 from tkinter import Tk, BOTH, Canvas
 
 class Window():
-  def __init__(self, width, height):
+  def __init__(self, width, height, bg_color="white"):
     self.__root = Tk()
     self.__root.geometry(f"{width}x{height}")
     self.__root.title = "Maze Window"
     self.__canvas = Canvas(self.__root, width=width, height=height)
+    self.__canvas.configure(bg=bg_color)
     self.__canvas.pack()
     self.__window_running = False
     self.__root.protocol("WM_DELETE_WINDOW", self.close)
@@ -24,6 +25,9 @@ class Window():
 
   def draw_line(self, line, fill_color="red"):
     line.draw(self.__canvas, fill_color)
+
+  def get_canvas_background(self):
+    return self.__canvas["background"]
 
 
 class Point():
