@@ -11,6 +11,7 @@ class Cell():
     self.has_right_wall = True
     self.has_top_wall = True
     self.has_bottom_wall = True
+    self.visited = False
 
   def draw(self, x1, y1, x2, y2):
     self._x1 = x1
@@ -21,8 +22,8 @@ class Cell():
     if self._win:
       left_wall_line = Line(Point(x1, y1), Point(x1, y2))
       right_wall_line = Line(Point(x2, y1), Point(x2, y2))
-      top_wall_line = Line(Point(x1, y2), Point(x2, y2))
-      bottom_wall_line = Line(Point(x1, y1), Point(x2, y1))
+      top_wall_line = Line(Point(x1, y1), Point(x2, y1))
+      bottom_wall_line = Line(Point(x1, y2), Point(x2, y2))
 
       if self.has_left_wall:
         self._win.draw_line(left_wall_line)
@@ -45,6 +46,9 @@ class Cell():
         self._win.draw_line(bottom_wall_line, fill_color=self._win.get_canvas_background())
 
   def draw_move(self, to_cell, undo=False):
+    if self._win is None:
+      return
+    
     curr_width = self._x2 - self._x1
     curr_height = self._y2 - self._y1
     next_width = to_cell._x2 - to_cell._x1
