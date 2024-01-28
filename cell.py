@@ -63,3 +63,6 @@ class Cell():
       self._win.draw_line(move_line, fill_color="gray")
     else:
       self._win.draw_line(move_line, fill_color="red")
+
+  def _reset_cells_visited(self):
+    self.visited = False
