@@ -34,7 +34,7 @@ python main.py [-emh]
 ## Preview
 <div align="center">
   <h3 align="center">Maze Solver at Work</h3>
-  <img src="media/usage.gif" alt="Logo" width="500" height="350">
+  <img src="media/usage.gif" alt="Logo" width="800" height="600">
 </div>
 
 ## License
