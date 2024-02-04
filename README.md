@@ -10,7 +10,7 @@
   <p align="center">
     Create and solve mazes of varying difficulty using Python and the Tkinter library.
     <br />
-    <a href="https://github.com/github_username/repo_name/media/usage.gif">View Demo</a>
+    <a href="https://github.com/slacey21/maze_solver/media/usage.gif">View Demo</a>
   </p>
 </div>
 
